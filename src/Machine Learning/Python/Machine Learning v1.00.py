@@ -1,4 +1,4 @@
-# ML wo Partitioning & wo Pre-processing
+# ML without Partitioning & without Pre-processing
 from IPython.core.display import Image, display
 display(Image(r'E:\\Locker\\Sai\\SaiHCourseNait\\DecBtch\\R_Datasets\\iris_setosa.jpg'))
 display(Image(r'E:\\Locker\\Sai\\SaiHCourseNait\\DecBtch\\R_Datasets\\iris_versicolor.jpg'))
