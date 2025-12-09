@@ -4,34 +4,41 @@ display(Image(r'E:\\Locker\\Sai\\SaiHCourseNait\\DecBtch\\R_Datasets\\iris_setos
 display(Image(r'E:\\Locker\\Sai\\SaiHCourseNait\\DecBtch\\R_Datasets\\iris_versicolor.jpg'))
 display(Image(r'E:\\Locker\\Sai\\SaiHCourseNait\\DecBtch\\R_Datasets\\iris_virginica.jpg'))
 from sklearn.datasets import load_iris
+
 # this is built in dataset
 iris = load_iris()
 print(iris)
-# it is a dict of keys & vals
+
+# it is a dictionary of keys & values
 iris.keys()
-# this gvs us keys
+
+# this gives us keys
 iris['data']
 iris['target']
-iris.values()iris.data.shape
-# this gvs us the dims
-# our ip data has 150 obs & 4 vars
+iris.values()
+
+iris.data.shape # this gives us the dimensions
+# our input data has 150 obs & 4 vars
 iris.feature_names
-# these r the vars or features or ivs
+
+# these are the variables or features or independent variables
 iris.target_names
-# these r the vals of target or dv
+# these are the values of target or dependent variables
 iris.target
-# this is dep var vals
+# this is dependent variable values
+
 ### Logistic Regression ###
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression()
 model.fit(iris.data,iris.target) # train
 expectedoutcome = iris.target # test
 predicted = model.predict(iris.data) # predictfrom sklearn import metrics
-# true vals vs predicted vals
+# true values vs predicted values
 print(metrics.confusion_matrix(expectedoutcome,predicted)) #
 from sklearn.metrics import accuracy_score
 score = accuracy_score(iris.target, predicted)
 score
+
 ### Naives Bayes ###
 from sklearn.naive_bayes import GaussianNB
 model = GaussianNB()model.fit(iris.data,iris.target)
