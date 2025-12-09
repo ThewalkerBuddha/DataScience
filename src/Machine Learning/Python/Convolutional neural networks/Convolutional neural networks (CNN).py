@@ -84,15 +84,10 @@ test_image = image.img_to_array(test_image)
 # this will convert from a 3D img to 3D array
 test_image # shld gv us (64,64,3)
 
-
-
-
 test_image = np.expand_dims(test_image, axis = 0)
 # axis specifies the position of indx of the dimnsn v r addng
 # v need to add the dim in the first position
 test_image # now it shld show (1,64,64,3)
-
-
 
 result = classifier.predict(test_image)
 # v r trying to predict
