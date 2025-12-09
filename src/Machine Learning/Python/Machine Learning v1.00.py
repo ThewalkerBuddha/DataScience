@@ -45,12 +45,14 @@ model = GaussianNB()model.fit(iris.data,iris.target)
 expected = iris.target
 predicted = model.predict(iris.data)
 print(metrics.accuracy_score(expected,predicted))
+
 ### SVM ###
 from sklearn.svm import SVC
 model = SVC()
 model.fit(iris.data,iris.target)
 expected = iris.target
 predicted = model.predict(iris.data)print(metrics.accuracy_score(expected,predicted))
+
 ### Diabetes Data ### # ML & Partitioning & wo Pre-processing
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indiansdiabetes.data"
 names = ['preg','plas','pres','skin','test','mass','pedi','age','class']
@@ -63,9 +65,11 @@ X
 y = array[:,8] # dv
 y
 test_size = 0.33
+
 from sklearn.model_selection import train_test_split
 #pip install -U scikit-learn
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=test_size)
+
 ### KNN ###
 from sklearn.neighbors import KNeighborsClassifier
 model = KNeighborsClassifier()model.fit(X_train,y_train)
@@ -83,6 +87,7 @@ model.fit(X_train,y_train)
 prediction = model.predict(X_test)
 outcome = y_test
 print(metrics.accuracy_score(outcome,prediction))# ML w Partitioning & Pre-processing
+
 #Feature selection
 from sklearn.feature_selection import SelectKBest, chi2
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=test_size)
@@ -109,6 +114,7 @@ logreg = LogisticRegression()
 X_train,X_test,y_train,y_test = train_test_split(features,y) # v r using features instead of X
 logreg.fit(X_train,y_train)
 logreg.score(X_test,y_test) # It may worsening here sometimes
+
 #***# recursive feature elimination, feature selection technique
 # gvs the combination of features which gv btr accuracy
 #from sklearn.linear_model import LogisticRegression
@@ -148,6 +154,7 @@ This is the first component
 [ -2.022e-03 9.781e-02 1.609e-02 6.076e-02 9.931e-01 1.401e-02
 5.372e-04 -3.565e-03]
 and so on...
+
 '''### Extra Tree Classifier ### fourth technique
 from sklearn.ensemble import ExtraTreesClassifier
 model = ExtraTreesClassifier()
@@ -293,6 +300,7 @@ rescaled = scaler.fit_transform(X)
 np.set_printoptions(precision=3)
 print(rescaled[0:5,:])
 print(X)# Standardization, mean of 0 and sd of 1, gaussian distrib
+
 # Linear Reg, Log Reg, LDA
 from sklearn.preprocessing import StandardScaler
 scaler2 = StandardScaler()
@@ -371,6 +379,7 @@ max_features = 3 #4,5,7
 model3 = RandomForestClassifier(n_estimators=num_trees,max_features=max_features)
 results3 = model_selection.cross_val_score(model3,X,y,cv=kfold)
 print(results3.mean())
+
 # Extra trees classifier
 from sklearn.ensemble import ExtraTreesClassifier
 max_features2 = 7
@@ -380,6 +389,7 @@ print(results4.mean())
 max_features2 = 7
 model4 = ExtraTreesClassifier(n_estimators=num_trees,max_features=max_features2)
 results4 = model_selection.cross_val_score(model4,X,y,cv=kfold)print(results4.mean())
+
 # Adaboost
 from sklearn.ensemble import AdaBoostClassifier
 num_trees2 = 30
@@ -392,6 +402,7 @@ num_trees3 = 100
 model6 = GradientBoostingClassifier(n_estimators=num_trees3,random_state=seed)
 results6 = model_selection.cross_val_score(model6,X,y,cv=kfold)
 print(results6.mean())
+
 # First XGBoost model for Pima Indians dataset
 '''How to Install in the simplest way:
 1. Download the Appropriate .whl file for your environment from
@@ -408,6 +419,7 @@ from sklearn.metrics import accuracy_score
 seed = 7
 test_size = 0.33
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=seed)
+
 # fit model no training data
 model = XGBClassifier()
 model.fit(X_train, y_train)
@@ -457,7 +469,10 @@ result = model.score(X_test,y_test)print("Accuracy with partitioning:{}".format(
 model2 = LogisticRegression()
 results = cross_val_score(model2,X,y,cv=kfold)
 print("Accuracy with CV:{}".format(results.mean()))
+
+
 # Model Par Tuning/Hyper par optimization# Create Best Model with best pars
+
 # GridsearchCv RandomSearchCV
 from sklearn import datasets
 from sklearn.linear_model import Ridge
